@@ -1,15 +1,23 @@
-import { BasePage } from "../pageObjects/basePage";
+import { BasePage } from "./basePage";
 
 export class HomePage extends BasePage {
   static get url() {
     return "/#/";
   }
 
-  static get dismissButton() {
-    return cy.get("[aria-label='Close Welcome Banner']");
+  static dismissBanner() {
+    return cy.get("[aria-label='Close Welcome Banner']").click();
   }
 
-  static get meWantItButton() {
-    return cy.get("[aria-label='dismiss cookie message']");
+  static acceptCookies() {
+    return cy.get("[aria-label='dismiss cookie message']").click();
   }
+
+  static goToRegister() {
+    cy.get("#navbarAccount").click();
+    cy.get("#navbarLoginButton").click();
+    cy.contains("Not yet a customer?").click();
+  }
+}
+
 }
