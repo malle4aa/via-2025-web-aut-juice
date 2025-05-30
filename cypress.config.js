@@ -9,5 +9,6 @@ module.exports = defineConfig({
     viewportHeight: 900,
     defaultCommandTimeout: 5000,
     baseUrl: "http://127.0.0.1:3000",
+    experimentalSessionAndOrigin: true, // <-- This line is critical for cy.session()
   },
 });
