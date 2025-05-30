@@ -62,3 +62,4 @@ describe("Juice-shop scenarios", () => {
     });
   });
 });
+
