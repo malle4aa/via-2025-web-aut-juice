@@ -1,4 +1,3 @@
-// cypress/e2e/juice-shop.cy.js
 import { HomePage } from "../pageObjects/HomePage";
 import { BasketPage } from "../pageObjects/BasketPage";
 import { SelectAddressPage } from "../pageObjects/SelectAddressPage";
