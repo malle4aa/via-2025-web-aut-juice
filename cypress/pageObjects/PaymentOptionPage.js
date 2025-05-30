@@ -1,6 +1,9 @@
-export class PaymentOptionPage {
-  static selectCardEndingWith(digits) {
-    cy.contains(new RegExp(`\\*\\*\\*\\*${digits}$`)).click();
-    cy.contains("Continue").click();
+export class PaymentOptionsPage {
+  static selectCard(ending) {
+    cy.contains(ending).click();
+  }
+
+  static continueButton() {
+    return cy.contains("Continue");
   }
 }
