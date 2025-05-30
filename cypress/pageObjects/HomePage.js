@@ -1,23 +1,33 @@
-import { BasePage } from "./basePage";
+import { BasePage } from "./BasePage";
 
 export class HomePage extends BasePage {
-  static get url() {
-    return "/#/";
+  static dismissWelcomeBanner() {
+    cy.get("[aria-label='Close Welcome Banner']").click({ force: true });
   }
 
-  static dismissBanner() {
-    return cy.get("[aria-label='Close Welcome Banner']").click();
+  static dismissCookieBanner() {
+    cy.get("[aria-label='dismiss cookie message']").click({ force: true });
   }
 
-  static acceptCookies() {
-    return cy.get("[aria-label='dismiss cookie message']").click();
-  }
-
-  static goToRegister() {
+  static openLogin() {
     cy.get("#navbarAccount").click();
     cy.get("#navbarLoginButton").click();
-    cy.contains("Not yet a customer?").click();
+  }
+
+  static verifyUserLoggedIn(username) {
+    cy.get("#navbarAccount").click();
+    cy.get(".mat-menu-content").should("contain", username);
+  }
+
+  static searchProduct(name) {
+    cy.get(".mat-search_icon-search").click();
+    cy.get("#searchQuery").type(`${name}{enter}`);
+  }
+
+  static addToBasket(productName) {
+    cy.contains(productName).parents("mat-card").within(() => {
+      cy.contains("Add to Basket").click();
+    });
   }
 }
 
-}
