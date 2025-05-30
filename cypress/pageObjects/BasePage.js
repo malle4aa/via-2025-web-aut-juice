@@ -1,5 +1,5 @@
 export class BasePage {
-  static visit() {
-    return cy.visit(this.url);
+  static visit(path = "/#/") {
+    return cy.visit(path);
   }
 }
