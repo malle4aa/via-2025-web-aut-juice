@@ -1,6 +1,9 @@
 export class DeliveryMethodPage {
-  static selectStandard() {
+  static selectStandardDelivery() {
     cy.contains("Standard Delivery").click();
-    cy.contains("Continue").click();
+  }
+
+  static continueButton() {
+    return cy.contains("Continue");
   }
 }
